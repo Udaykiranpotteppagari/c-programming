@@ -1,0 +1,36 @@
+//Array updating
+#include <stdio.h>
+int main() 
+{
+    int arr[100], n, i, index, new_value;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    printf("Enter the elements:\n");
+    for (i = 0; i < n; i++) 
+    {
+        scanf("%d", &arr[i]);
+    }
+    printf("Original array:\n");
+    for (i = 0; i < n; i++) 
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    printf("Enter the index of the element to update: ");
+    scanf("%d", &index);
+    if (index < 0 || index >= n) 
+    {
+        printf("Invalid index\n");
+        return 1;
+    }
+    printf("Enter the new value: ");
+    scanf("%d", &new_value);
+    arr[index] = new_value;
+    printf("Updated array:\n");
+    for (i = 0; i < n; i++) 
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
