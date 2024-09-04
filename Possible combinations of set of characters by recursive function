@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+void generateCombinations(char *str, char *current, int index, int start) 
+{
+    int length = strlen(str);
+    if (index != 0) {
+        current[index] = '\0';
+        printf("%s\n", current);
+    }
+    for (int i = start; i < length; i++) 
+    {
+        current[index] = str[i];
+        generateCombinations(str, current, index + 1, i + 1);
+    }
+}
+void findAllCombinations(char *str) {
+    int length = strlen(str);
+    char current[length + 1];
+    generateCombinations(str, current, 0, 0);
+}
+int main() 
+{
+    char input[100];
+    printf("Enter a string: ");
+    scanf("%s", input);
+    printf("All possible combinations are:\n");
+    findAllCombinations(input);
+    return 0;
+}
