@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+enum Weekdays{
+    Sunday=1,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday
+};
+
+int main(){
+    enum Weekdays days=Friday;
+    printf("Enter the day of the week: %d",days);
+}
