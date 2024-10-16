@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int a, b, sum;
+    int *ptrA = &a; 
+    int *ptrB = &b; 
+    int *ptrSum = &sum; 
+
+    printf("Enter two integers:\n");
+    printf("Enter first integer: ");
+    scanf("%d", ptrA); 
+    printf("Enter second integer: ");
+    scanf("%d", ptrB); 
+
+    *ptrSum = *ptrA + *ptrB; 
+
+    printf("Sum of %d and %d is: %d\n", *ptrA, *ptrB, *ptrSum);
+
+    return 0;
+}
