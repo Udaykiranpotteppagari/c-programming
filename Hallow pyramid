@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void hollowDiamondPyramid(int a) {
+    for (int b = 1; b <= a; b++) {
+        for (int c = 1; c <= a - b; c++) {
+            printf(" ");
+        }
+        for (int c = 1; c <= 2 * b - 1; c++) {
+            if (c == 1 || c == 2 * b - 1) {
+                printf("*");
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+    for (int b = a - 1; b >= 1; b--) {
+        for (int c = 1; c <= a - b; c++) {
+            printf(" ");
+        }
+        for (int c = 1; c <= 2 * b - 1; c++) {
+            if (c == 1 || c == 2 * b - 1) {
+                printf("*");
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int a = 5;
+    hollowDiamondPyramid(a);
+    return 0;
+}
