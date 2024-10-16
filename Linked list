@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+void traverse(struct Node* head) {
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+void InsertAtBeginning(struct Node** head, int data) {
+    struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+    newnode->data = data;
+    newnode->next = *head;
+    *head = newnode;
+}
+
+void InsertAtEnd(struct Node** head, int data) {
+    struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+    struct Node* last = *head;
+    newnode->data = data;
+    newnode->next = NULL;
+    if (*head == NULL) {
+        *head = newnode;
+        return;
+    }
+    while (last->next != NULL) {
+        last = last->next;
+    }
+    last->next = newnode;
+}
+
+void deleteNode(struct Node** head, int key) {
+    struct Node* temp = *head, *prev;
+    if (temp != NULL && temp->data == key) {
+        *head = temp->next;
+        free(temp);
+        return;
+    }
+    while (temp != NULL && temp->data != key) {
+        prev = temp;
+        temp = temp->next;
+    }
+    if (temp == NULL) {
+        return;
+    }
+    prev->next = temp->next;
+    free(temp);
+}
+
+int main() {
+    struct Node* head = NULL;
+    InsertAtEnd(&head, 10);
+    InsertAtEnd(&head, 20);
+    InsertAtEnd(&head, 30);
+    InsertAtEnd(&head, 40);
+    InsertAtEnd(&head, 50);
+    traverse(head);
+    InsertAtBeginning(&head, 5);
+    traverse(head);
+    deleteNode(&head, 30);
+    traverse(head);
+    return 0;
+}
