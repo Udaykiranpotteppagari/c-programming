@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+
+
+int main() {
+    int a, b, x;
+    int marks;
+
+    a = 15; 
+    b = 4;
+
+    x = ((a > 10) && (b < 5)) ? (a + b) : 0;
+
+    printf("Value of x: %d\n", x); 
+
+    marks = 75;
+
+    (marks >= 60) ? printf("Passed\n") : printf("Failed\n");
+
+    return 0;
+}
