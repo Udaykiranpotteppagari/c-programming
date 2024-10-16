@@ -1,0 +1,17 @@
+#include <stdio.h>
+void printFullPyramid(int a) {
+    for (int b = 1; b <= a; b++) {
+        for (int c = 1; c <= a - b; c++) {
+            printf(" ");
+        }
+        for (int c = 1; c <= 2 * b - 1; c++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+int main() {
+    int a = 5;
+    printFullPyramid(a);
+    return 0;
+}
