@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int n = 20;
+    int fib1 = 0, fib2 = 1, nextTerm;
+
+    printf("Fibonacci Sequence:\n");
+
+    for (int i = 1; i <= n; ++i) {
+        printf("%d ", fib1);
+        nextTerm = fib1 + fib2;
+        fib1 = fib2;
+        fib2 = nextTerm;
+    }
+
+    return 0;
+}
