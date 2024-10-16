@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+void invertedRightHalfPyramid(int a) {
+    for (int b = a; b >= 1; b--) {
+        for (int c = 1; c <= b; c++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int a = 5;
+    invertedRightHalfPyramid(a);
+    return 0;
+}
