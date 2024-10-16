@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+    int a=80,b=70,c=60,i;
+    printf("Enter the values u want to search\n");
+    scanf("%d",&i);
+    if(i>=a){
+        printf("A Grade\n");
+    }
+    else if(i>=b){
+        printf("B Grade\n");
+    }
+    else if (i>=c){
+        printf("C Grade\n");
+    }
+    else
+       printf("Fail\n");
+    return 0;
+}
