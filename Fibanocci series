@@ -1,0 +1,12 @@
+#include<stdio.h>
+
+int main(){
+
+    int a=5;
+    for(int i=a;i>=0;i--){
+        for(int j=i;a>j;j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+}
