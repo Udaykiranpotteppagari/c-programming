@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void pascalsTriangle(int a) {
+    int coef = 1;
+    for (int b = 0; b < a; b++) {
+        for (int c = 1; c <= a - b; c++) {
+            printf(" ");
+        }
+        for (int c = 0; c <= b; c++) {
+            if (c == 0 || b == 0) {
+                coef = 1;
+            } else {
+                coef = coef * (b - c + 1) / c;
+            }
+            printf("%d ", coef);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int a = 5;
+    pascalsTriangle(a);
+    return 0;
+}
