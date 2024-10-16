@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+#include <string.h>
+
+
+// Function to generate and print combinations
+int generateCombinations(char str[], int start, int end) {
+    int count = 0; // To count the number of combinations
+    
+    if (start == end) {
+        printf("%s\n", str);  // Print the current combination
+        return 1;  // Return 1 as one valid combination is found
+    }
+
+    for (int i = start; i <= end; i++) {
+        // Swap characters
+        char temp = str[start];
+        str[start] = str[i];
+        str[i] = temp;
+
+        // Recursively generate combinations for the next character
+        count += generateCombinations(str, start + 1, end);
+
+        // Backtrack to restore original order
+        temp = str[start];
+        str[start] = str[i];
+        str[i] = temp;
+    }
+
+    return count; // Return the total number of combinations generated
+}
+
+int main() {
+    char str[100];
+    
+    // Input string from the user
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    // Calculate the length of the string
+    int n = strlen(str);
+
+    // Call the recursive function and print the total number of combinations
+    printf("All possible combinations are:\n");
+    int total = generateCombinations(str, 0, n - 1);
+    printf("Total combinations: %d\n", total);
+
+    return 0;
+}
