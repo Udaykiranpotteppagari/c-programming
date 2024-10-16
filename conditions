@@ -1,0 +1,153 @@
+#include <stdio.h>
+#include <limits.h>
+void insert(int arr[], int *n, int pos, int val) 
+{
+    for (int i = *n; i > pos; i--) 
+    {
+        arr[i] = arr[i-1];
+    }
+    arr[pos] = val;
+    (*n)++;
+}
+void delete(int arr[], int *n, int pos) 
+{
+    for (int i = pos; i < *n - 1; i++) 
+    {
+        arr[i] = arr[i+1];
+    }
+    (*n)--;
+}
+void findMaxMin(int arr[], int n, int *max, int *min) 
+{
+    *max = INT_MIN;
+    *min = INT_MAX;
+    for (int i = 0; i < n; i++) 
+    {
+        if (arr[i] > *max) 
+        {
+            *max = arr[i];
+        }
+        if (arr[i] < *min) 
+        {
+            *min = arr[i];
+        }
+    }
+}
+void reverse(int arr[], int n) 
+{
+    for (int i = 0; i < n / 2; i++) 
+    {
+        int temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+    }
+}
+void sort(int arr[], int n) 
+{
+    for (int i = 0; i < n-1; i++) 
+    {
+        for (int j = 0; j < n-i-1; j++) 
+        {
+            if (arr[j] > arr[j+1]) 
+            {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+int search(int arr[], int n, int val) 
+{
+    for (int i = 0; i < n; i++) 
+    {
+        if (arr[i] == val) 
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+void display(int arr[], int n)
+{
+    for (int i = 0; i < n; i++) 
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+int main() 
+{
+    int arr[100];
+    int n, choice, pos, val, max, min, searchVal, searchPos;
+    
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    
+    printf("Enter the elements: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    while (1) {
+        printf("\nMenu:\n");
+        printf("1. Insert element\n");
+        printf("2. Delete element\n");
+        printf("3. Find max and min\n");
+        printf("4. Reverse array\n");
+        printf("5. Sort array\n");
+        printf("6. Search element\n");
+        printf("7. Display array\n");
+        printf("8. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        
+        switch (choice) {
+            case 1:
+                printf("Enter position to insert: ");
+                scanf("%d", &pos);
+                printf("Enter value to insert: ");
+                scanf("%d", &val);
+                insert(arr, &n, pos, val);
+                break;
+            case 2:
+                printf("Enter position to delete: ");
+                scanf("%d", &pos);
+                delete(arr, &n, pos);
+                break;
+            case 3:
+                findMaxMin(arr, n, &max, &min);
+                printf("Max value: %d\n", max);
+                printf("Min value: %d\n", min);
+                break;
+            case 4:
+                reverse(arr, n);
+                printf("Array reversed.\n");
+                break;
+            case 5:
+                sort(arr, n);
+                printf("Array sorted.\n");
+                break;
+            case 6:
+                printf("Enter value to search: ");
+                scanf("%d", &searchVal);
+                searchPos = search(arr, n, searchVal);
+                if (searchPos != -1) 
+                {
+                    printf("Element found at position: %d\n", searchPos);
+                } else 
+                {
+                    printf("Element not found.\n");
+                }
+                break;
+            case 7:
+                display(arr, n);
+                break;
+            case 8:
+                return 0;
+            default:
+                printf("Invalid choice!\n");
+        }
+    }
+    return 0;
+}
