@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void printFloydsTriangle(int a) {
+    int b = 1; // Start with 1
+    for (int c = 1; c <= a; c++) {
+        for (int d = 1; d <= c; d++) {
+            printf("%d ", b);
+            b++; // Increment the number
+        }
+        printf("\n"); // Move to the next line
+    }
+}
+
+int main() {
+    int a = 5; // Number of rows for Floyd's Triangle
+    printFloydsTriangle(a);
+    return 0;
+}
